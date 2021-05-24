@@ -35,8 +35,8 @@ class TicTacToe:
         return self.board.count(' ')
 
     def make_move(self, square, letter):
-        # if valid move, make the move (assigh square to letter)
-        # then reurn true. if invalid, return false
+        # if valid move, make the move (assign square to letter)
+        # then return true. if invalid, return false
         if self.board[square] == ' ':
             self.board[square] = letter
             if self.winner(square, letter):
@@ -45,7 +45,7 @@ class TicTacToe:
         return False
 
     def winner(self, square, letter):
-        # winner if 3 in a row anuwhere.. we have to check all of these!
+        # winner if 3 in a row anywhere.. we have to check all of these!
         # first let's check the row 
         row_ind = square // 3
         row = self.board[row_ind*3 : (row_ind + 1)*3]
@@ -62,10 +62,10 @@ class TicTacToe:
         # but only if the square is an even number (0, 2, 4, 6, 8)
         # these are the only moves possible to win a diagonal
         if square % 2 == 0:
-            diagonal1 = [self.board[i] for i in [0, 4, 8]] # left to right doagonal
+            diagonal1 = [self.board[i] for i in [0, 4, 8]] # left to right diagonal
             if all([spot == letter for spot in diagonal1]):
                 return True
-            diagonal2 = [self.board[i] for i in [2, 4, 6]] # right to left doagonal
+            diagonal2 = [self.board[i] for i in [2, 4, 6]] # right to left diagonal
             if all([spot == letter for spot in diagonal2]):
                 return True
 
@@ -100,7 +100,7 @@ def play(game, x_player, o_player, print_game=True):
                 return letter
         
             # after i made our move, i need to alternate letters
-            letter = 'O' if letter == 'X' else 'X' # swithes player
+            letter = 'O' if letter == 'X' else 'X' # switches player
 
         # tiny break to make things a little easier to read
         if print_game:
